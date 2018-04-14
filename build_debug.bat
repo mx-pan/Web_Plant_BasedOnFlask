@@ -1,0 +1,1 @@
+ionic serve --no-open -port 8080 --consolelogs

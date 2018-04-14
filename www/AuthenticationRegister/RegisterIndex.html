@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+
+    <link href="../Images/Favicon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>公园植物信息管理平台</title>
+
+    <link href="../Content/sitecss6b58.css?v=fNoNk_yeMExpJgsy0iuBVcoKNuFaYjym6mDn4Os-F7w1" rel="stylesheet"/>
+
+    <script src="../bundles/modernizre181?v=FbJ688fulsybP2-T20QPXT8LQsQ1mhbdTSDTuHaeXms1"></script>
+
+
+    
+    <link href="../Content/siteunauth21bd.css?v=3QnaxRHHcoG3c2oYf01aGfx9tUBmiuhdZh_5LeRVurI1" rel="stylesheet"/>
+
+    
+    <link href="../Content/RegisterIndexNew251b.css?v=gGE2zbPTrOCAO0nAjguDmetp4zvtLF9TNuaFOiwHhpA1" rel="stylesheet"/>
+
+
+
+
+    <noscript>您的浏览器不支持JavaScript，请开启后继续</noscript>
+</head>
+<body>
+    
+
+
+
+<div class="brandBar-main">
+    <a href='../index.html' class="brandBar-logo">
+        <img src="../Images/Shared/logo2x.png" />
+    </a>
+</div>
+
+
+
+
+
+<div id="bodyContainer" class="container">
+
+    <div class="row unauth-row">
+        
+        
+
+
+<div class="common-panel unauthed">
+    <div class="register-panel">
+        <div class="switch-header">
+            <div class="switch-words register-switch">
+                注册
+            </div>
+        </div>
+        <div class="error-group">
+            <span id="ErrorTips" class="error-span">
+                
+            </span>
+        </div>
+<form action="https://e.msxiaobing.com/AuthenticationRegister/RegisterIndex" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="T6UvboEnrYqadJLnceHffoYl_lOOJJMXaZAbJyvhHseCYXoutxInw9DPcZE4PUJ5anNWC4gf4x1jGMfzYqI9cQER6rhk_hYhnvQHcHL-3gM1" />            <input id="PhoneNumber" name="PhoneNumber" type="text" class="xb_text_input" autocapitalize="off" autocomplete="off" placeholder="输入注册管理员手机号" spellcheck="false">
+            <div class="verification-group">
+                
+                <input type="text" id="VerificationCode" name="VerificationCode" class="xb_text_input" autocapitalize="off" autocomplete="off" placeholder="输入动态口令" spellcheck="false" />
+                <button id="CodeButton" type="button" class="xb_button xb_btn_default">获取动态口令</button>
+            </div>
+            <div class="bottom-button-group">
+                <input id="SubmitButton" type="submit" value="下一步" class="blue-button" />
+            </div>
+            <div class="bottom_switch_tips" style="padding-bottom:44px;">
+                <span>已有账号？</span><a href="../login.html"><span class="goto_login">立即登录</span></a>
+            </div>
+</form>    </div>
+
+</div>
+
+
+    </div>
+</div>
+
+
+
+<footer class="footer-black">
+    <div class="container">
+        <ul>
+            <li>© 2018 无名科技 |</li>
+            <li>
+                <a>使用条款</a> |
+            </li>
+            <li>
+                <a>意见反馈</a> |
+            </li>
+            <li>
+                <a>隐私声明</a> |
+            </li>
+            <li>
+                <a>免责声明</a> |
+            </li>
+            <li>
+                <a>使用指南</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+
+
+
+
+    
+    
+<div id="confirmMaskBox" class="mask-box wrapper-box">
+    <div class="mask-wrapper confirm-wrapper">
+        <div class="mask_header">
+            <span id="confirmHeaderTitle" class="mask_title">my title</span>
+            <button id="confirmCloseButton" type="button" class="btn-empty mask_header_close">
+                <span class="sf sf-ChromeClose sf-small"></span>
+            </button>
+        </div>
+        <div class="mask_body">
+            <div style="margin:0 auto; ">
+                <div id="confirmContent" class="mask_content">
+                </div>
+            </div>
+        </div>
+        <div class="mask_footer">
+            <button id="confirmOkButton" class="btn-default-blue mask_ok">确定</button>
+            <button id="confirmCancelButton" class="btn-default-white mask_footer_close">取消</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="alertMaskBox" class="mask-box alert-box">
+    <div class="mask-wrapper alert-wrapper">
+        <div class="mask_header">
+            <span id="alertHeaderTitle" class="mask_title">my title</span>
+            <button id="alertCloseButton" type="button" class="btn-empty mask_header_close">
+                <span class="sf sf-ChromeClose sf-small"></span>
+            </button>
+        </div>
+        <div class="mask_body">
+            <div style="margin:0 auto;">
+                <div id="alertContent" class="mask_content">
+                </div>
+            </div>
+        </div>
+        <div class="mask_footer">
+            <button id="alertOkButton" class="btn-default-blue mask_ok">确定</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="toastBox" class="toast-box">
+    <span class="toast-wrapper">
+        <span id="toastIcon" class="mask_icon"></span>
+        <span id="toastContent" class="mask_content"></span>
+    </span>
+</div>
+
+
+<div id="inputMaskBox" class="mask-box input-box">
+    <div class="mask-wrapper input-wrapper">
+        <div class="mask_header">
+            <span id="inputHeaderTitle" class="mask_title">my title</span>
+            <button id="inputCloseButton" type="button" class="btn-empty mask_header_close">
+                <span class="sf sf-ChromeClose sf-small"></span>
+            </button>
+        </div>
+        <div class="mask_body">
+            <div style="margin:0 auto;">
+                <div id="inputDescription" class="inner_title"></div>
+                <div class="inner_input">
+                    <input id="inputText" class="input_text" value="" />
+                </div>
+                <div id="inputTips" class="inner_tips">
+                </div>
+            </div>
+        </div>
+        <div class="mask_footer">
+            <button id="inputOkButton" class="btn-default-blue mask_ok">确定</button>
+            <button id="inputCancelButton" class="btn-default-white mask_footer_close">取消</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="loadingMask" class="loading-mask domHide">
+    <div class="img-rotation">
+        <img class="rotation load-img" src="../Images/Shared/loading.png" />
+    </div>
+</div>
+
+
+
+    
+    
+    
+
+
+    
+    <script src="../bundles/refine-jquery5688?v=dUOzMSIL6o9O2jyvgsiOO1J-nnw5PH1b-u5hgbIyvAA1"></script>
+
+    <script src="../bundles/bootstrap4fd2?v=klmh2FjHvY2Dxv3MnagiBdsmTcCpsNDTjOqPP_cM7Ig1"></script>
+
+    
+    
+    <script type="text/javascript">
+        var _appId = '';
+        var _partnerId = 0;
+    </script>
+    
+    <script>
+        var _serverErrorMessage = '';
+    </script>
+
+    <script src="../bundles/RegisterIndexcb2f?v=RgY-ikOYGUD18DXJbUtA-ai7dPjd3vNIRiT912u2oIc1"></script>
+
+
+
+</body>
+
+</html>
