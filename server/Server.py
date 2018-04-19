@@ -16,6 +16,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin.contrib.sqla import ModelView
 from flask_babelex import Babel
 from flask_login import current_user, login_user, logout_user, LoginManager, login_required
+from flask_socketio import SocketIO, emit
 
 from .flask_sqlite_view import *        # 导入数据库视图的显示
 from .flask_sqlite import *             # 导入数据库定义
@@ -29,7 +30,6 @@ from .image_generate import *           # 导入图像生成函数
 #   sys.setdefaultencoding('utf-8')
 """
 
-# 发送通用反馈给Ionic
 
 
 def make_json(state, log, msg, data=''):
@@ -63,6 +63,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # 国际化设置，将语言设置为中文
 babel = Babel(app)
 app.config['BABEL_DEFAULT_LOCALE'] = 'zh_CN'
+
+#初始化socketio by SP
+socketio = SocketIO(app)
 
 # 初始化数据库
 db.init_app(app)
@@ -105,16 +108,8 @@ admin = Admin(app, index_view=my_view(), name='管理后台',
 
 # 将显示功能添加到页面中
 admin.add_view(USERS_view(USERS, db.session, name='用户管理', endpoint='USER'))
-admin.add_view(MAIN_MENU_view(MAIN_MENU, db.session,
-                              name='主菜单管理', endpoint='MAIN_MENU'))
-admin.add_view(SENSOR_view(SENSOR, db.session, name='传感器信息管理',
-                           endpoint='SENSOR', category='数据库管理'))
-admin.add_view(TRANSPORT_view(TRANSPORT, db.session,
-                              name='运输单元信息管理', endpoint='TRANSPORT', category='数据库管理'))
-admin.add_view(TASK_view(TASK, db.session, name='任务状态',
-                         endpoint='TASK', category='数据库管理'))
-admin.add_view(DEPARTMENT_view(DEPARTMENT, db.session,
-                               name='科室管理', endpoint='DEPARTMENT', category='数据库管理'))
+admin.add_view(PLANTS_view(PLANTS, db.session, name='植物信息管理',
+                           endpoint='PLANTS'))
 
 
 @app.errorhandler(404)
@@ -132,7 +127,7 @@ def root_redirect():
 @app.route('/favicon.ico', methods=['GET'])
 def favicon():
     """如果用户请求了网页图标，则给用户发送图标"""
-    return any_file('assets/icon/favicon.png')
+    return any_file('Images/Favicon/favicon.ico')
 
 
 @app.route('/file/<path:filename>', methods=['GET'])
@@ -179,70 +174,10 @@ def api_logout():
     return make_json(True, 'Logout Sucessful', '登出成功')
 
 
-@app.route('/api/push_sensor_data/<node>/<sensor_type>/<sensor_id>/<error_code>', methods=['GET'])
-@login_required
-def api_push_sensor_data(node,sensor_type,sensor_id,error_code):
-    print(node,sensor_type,sensor_id,error_code)
-    return make_json(True, 'Success', "接收服务器成功")
-
-
-@app.route('/api/get_picture_test/<arg>', methods=['GET'])
-@login_required
-def api_get_picture_test(arg):
-    image_src=Image_to_Base64(Get_Bar_Graph(arg))
-    return make_json(True, 'Return A base64 encoded image', "获取图片成功", {'image_src': image_src})
-
-
-@app.route('/api/monitor_elevator/<floor>', methods=['GET'])
-@login_required
-def api_monitor_elevator(floor):
-    image_src=Image_to_Base64(Get_Image_floor(1,1,1,int(floor)))
-    return make_json(True, 'Return A base64 encoded image', "获取图片成功", {'image_src': image_src})
-
-@app.route('/api/running_yx', methods=['GET'])
-@login_required
-def api_running_yx():
-    data = [
-      { 'a': "AVG1" ,'b': 'a' ,'c': '11' ,'d': '名称' , 'e': '接收站点编号', 'f': '发送时间', 'g': '1234', 'h': '当前经过节点位置', 'i': '当前经过节点时间', 'j': '接收时间', 'k': '完成时间', 'l': '完成', 'm': '故障点', 'n': '故障原因'},
-      { 'a': "AVG2" ,'b': 'b' ,'c': '22' ,'d': '名称' , 'e': '接收站点编号', 'f': '发送时间', 'g': '当前经过节点编号', 'h': '当前经过节点位置', 'i': '当前经过节点时间', 'j': '接收时间', 'k': '完成时间', 'l': '正在运行', 'm': '故障点', 'n': '故障原因' }
-    ]
-    return make_json(True, 'Transport successful', '', data)
-
-@app.route('/api/running/<account>', methods=['GET'])
-@login_required
-def api_running(account):
-    query = [{'name': '任务编号', 'value': '1'},
-             {'name': '发送站点名称', 'value': 'ASD'},
-             {'name': '发送站点编号', 'value': 'sji'}
-             ]
-    return make_json(True, 'Query Sucessful', '查询成功', {'query': query})
-
-
 @app.route('/api/check', methods=['GET'])
 @login_required
 def api_check():
     return make_json(True, 'Already logged in', "您已登录")
-
-
-@app.route('/api/sensor', methods=['GET'])
-@login_required
-def api_sensor():
-    query = SENSOR.query.all()
-    return make_json(True, 'Sensor successful', '', Get_List_From_Query(query))
-
-
-@app.route('/api/transport', methods=['GET'])
-@login_required
-def api_transport():
-    query = TRANSPORT.query.all()
-    return make_json(True, 'Transport successful', '', Get_List_From_Query(query))
-
-
-@app.route('/api/main_menu', methods=['GET'])
-@login_required
-def api_main_menu():
-    query = MAIN_MENU.query.all()
-    return make_json(True, 'Main_menu successful', '', Get_List_From_Query(query))
 
 
 @app.route('/api/user', methods=['GET'])
@@ -255,6 +190,12 @@ def api_user():
         'USER_GROUP': user.GROUP
     }
     return make_json(True, 'User successful', '', data)
+
+@app.route('/api/plants', methods=['GET'])
+@login_required
+def api_plants():
+    query = PLANTS.query.all()
+    return make_json(True, 'PLANTS successful', '', Get_List_From_Query(query))
 
 
 @app.route('/api/server', methods=['GET'])

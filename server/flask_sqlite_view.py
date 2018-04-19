@@ -42,7 +42,8 @@ class MAIN_MENU_view(ModelView):
     create_modal = True                 # 新建窗口是否是以弹出对话框的方式显示
     edit_modal = True                   # 编辑窗口是否是以弹出对话框的方式显示
 
-class SENSOR_view(ModelView):
+
+class PLANTS_view(ModelView):
     can_delete = True
     can_edit = True
     can_create = True
@@ -50,48 +51,7 @@ class SENSOR_view(ModelView):
     export_max_rows = 0
     can_export = True
     export_types = EXPORT_TYPES
-    column_filters = SENSOR.Columns  # 查找功能
-    column_labels = SENSOR.Translation  # 自定义显示column
-    create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
-    edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示
-
-
-class TRANSPORT_view(ModelView):
-    can_delete = True
-    can_edit = True
-    can_create = True
-    can_view_details = True
-    export_max_rows = 0
-    can_export = True
-    export_types = EXPORT_TYPES
-    column_filters = TRANSPORT.Columns  # 查找
-    column_labels = TRANSPORT.Translation  # 自定义显示column
-    create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
-    edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示
-
-
-class TASK_view(ModelView):
-    can_delete = True
-    can_edit = False
-    can_create = False
-    can_view_details = True
-    export_max_rows = 0
-    can_export = True
-    export_types = EXPORT_TYPES
-    column_filters = TASK.Columns  # 查找
-    column_labels = TASK.Translation  # 自定义显示column
-    create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
-    edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示
-
-class DEPARTMENT_view(ModelView):
-    can_delete = True
-    can_edit = True
-    can_create = True
-    can_view_details = True
-    export_max_rows = 0
-    can_export = True
-    export_types = EXPORT_TYPES
-    column_filters = DEPARTMENT.Columns  # 查找
-    column_labels = DEPARTMENT.Translation  # 自定义显示column
+    column_filters = PLANTS.Columns  # 查找功能
+    column_labels = PLANTS.Translation  # 自定义显示column
     create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
     edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示

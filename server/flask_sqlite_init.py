@@ -29,11 +29,11 @@ app.app_context().push()
 
 def add_data():
     db.session.add(USERS('user1', 'test', '管理员', 'ALL',  '张三', '1120141234', '管理部门',
-                         '检验科、药房、静配中心、手术室、中心污物室、中心洁物室', '01', '13901234567'))
-    db.session.add(USERS('user2', 'test', '医护人员', 'STATION',  '李四', '1120151234', '检验科',
-                         '检验科、药房、静配中心、手术室、中心污物室、中心洁物室', '01', '13901234567'))
-    db.session.add(USERS('user3', 'test', '维护人员', 'MAINTAINER', '王五', '1120161234',
-                         '工程部', '检验科、药房、静配中心、手术室、中心污物室、中心洁物室', '02', '13901234567'))
+                         '管理中心', '01', '13901234567'))
+    db.session.add(USERS('user2', 'test', '养护人员', 'STATION',  '李四', '1120151234', '养护站',
+                         '养护站', '01', '13901234567'))
+    db.session.add(USERS('user3', 'test', '养护人员', 'MAINTAINER', '王五', '1120161234',
+                         '养护站', '养护站', '02', '13901234567'))
 
     db.session.add(MAIN_MENU('设备状态', 'StatusPage', "AGV及传感器状态",
                              "mycolor1", "medkit", '[ALL], [STATION]', 'NONE'))
@@ -57,23 +57,8 @@ def add_data():
     db.session.add(SENSOR('AGV1条码扫描仪1', '01', "这个节点位于XXXX", '05-001',"20180317-01-001", "/file/assets/imgs/agv.png", '故障', '', "danger", '127.0.0.12', '8080'))
     db.session.add(SENSOR('REID扫描仪1', '02', "这个节点位于XXXX", '05-001',"20180317-02-001", "/file/assets/imgs/agv.png", '正常', "", "secondary", '127.0.0.13', '8080'))
 
-    db.session.add(TRANSPORT('箱体0001', '01', '20180317-02-00001','20180317-03-00001', "/file/assets/imgs/Package_add.png", '故障',
-                             "右轮堵转,已切断动力电源损坏", "primary", '128.0.0.12', '8080'))
-    db.session.add(TRANSPORT('箱体0002', '01', '20180317-02-00002', '20180317-03-00002',
-                             "/file/assets/imgs/Package_add.png", '正常', "", "secondary ", '128.0.0.13', '8080'))
-
-    db.session.add(TASK('1521434711', '0', " 1521434711_20180317-04-01_20180317-04-002", "20180317-02-00001",
-                        "20180317-03-00001", "20180317-04-01", "20180317-04-002", 'user1', '张三', '检验科', '药房', '检验结果',
-                        '20180317-01-002', '1521435671', '处理中', "", "secondary ", "/file/assets/imgs/agv.png",
-                        '{[1521434711,20180317-04-01],[1521435671,20180317-01-002]}'))
-
-    db.session.add(DEPARTMENT('检验科', '20180317-04-01', '二层检验科'))
-    db.session.add(DEPARTMENT('药房', '20180317-04-01', '一层药房'))
-    db.session.add(DEPARTMENT('静配中心', '20180317-04-01', '三层静配中心'))
-    db.session.add(DEPARTMENT('手术室', '20180317-04-01', '四层手术室'))
-    db.session.add(DEPARTMENT('中心污物室', '20180317-04-01', '一层中心污物室'))
-    db.session.add(DEPARTMENT('中心洁物室', '20180317-04-01', '一层中心洁物室'))
-
+    db.session.add(PLANTS('紫荆', '裸枝树，紫珠', "豆科", '紫荆属',"紫荆-001", "/file/assets/imgs/agv.png", '良好', '暖带树种，较耐寒。喜光，稍耐阴。喜肥沃、排水良好的土壤，不耐湿。', "??", '127.0.0.12', '8080'))
+ 
     db.session.commit()
 
 
