@@ -20,7 +20,7 @@ from flask_socketio import SocketIO, emit
 
 from .flask_sqlite_view import *        # 导入数据库视图的显示
 from .flask_sqlite import *             # 导入数据库定义
-from .image_generate import *           # 导入图像生成函数
+
 
 
 
