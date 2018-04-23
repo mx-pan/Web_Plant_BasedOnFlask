@@ -229,18 +229,18 @@
  
 						<li><a class="" >日历</a></li>
                         <li><a class="" >聊天</a></li>
-                        <li><a class="" > 图册</a></li>
+                        <li><a class="" href="gallery.html"> 图册</a></li>
                     </ul>
 				</li>
 
                 <li class="has-sub">
                     <a href="javascript:;" class="">
-                        <span class="icon-box"><i class="icon-glass"></i></span> 数据库管理
+                        <span class="icon-box"><i class="icon-book"></i></span> 数据库管理
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="http://localhost/admin/USER/">用户管理</a></li>
-                        <li><a class="" href="http://localhost/admin/PLANTS/">植物管理</a></li>
+                        <li><a class="" target="_blank" href="http://localhost/admin/USER/">用户管理</a></li>
+                        <li><a class="" target="_blank" href="http://localhost/admin/PLANTS/">植物管理</a></li>
                     </ul>
                 </li>
 
@@ -434,7 +434,8 @@
 									</span>
 								</div>
 								<div class="widget-body">
-                                    <div class="timeline-messages">
+                                       <!--  
+                                        <div class="timeline-messages">
                                             <div class="msg-time-chat">
                                                 <a class="message-img" href="#"><img alt="" src="img/avatar1.jpg" class="avatar"></a>
                                                 <div class="message-body msg-in">
@@ -472,6 +473,55 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    -->
+
+                                    <ul class="chats">
+                                        <li class="out">
+                                            <img class="avatar" alt="" src="img/avatar1.jpg" />
+                                            <div class="message">
+                                                 <span class="arrow"></span>
+                                                <a href="#" class="name">BIT_ADMIN</a>
+                                                <span class="datetime">1:55pm, 13th March 2018</span>
+                                                    <span class="body">
+                                                            我这儿的紫荆树好像出现了一些病状，个别枝条从枝顶端开始的叶片出现发黄、脱落，这可能会是什么病？
+                                                    </span>
+                                            </div>
+                                        </li>
+                                        <li class="in">
+                                            <img class="avatar" alt="" src="img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="#" class="name">Automation</a>
+                                                <span class="datetime">2:01pm, 13th March 2018</span>
+													<span class="body">
+                                                            这可能是紫荆枯萎病，你可以剥开病枝树皮检查一下，如果木质部有黄褐色纵条纹，其横断面可见黄褐色轮纹状坏死斑就极有可能是该病。
+													</span>
+                                            </div>
+                                        </li>
+                                        <li class="out">
+                                            <img class="avatar" alt="" src="img/avatar1.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="#" class="name">BIT_ADMIN</a>
+                                                <span class="datetime">2:03pm, 13th March 2018</span>
+													<span class="body">
+                                                            对于这种病害有什么防治建议吗？
+													</span>
+                                            </div>
+                                        </li>
+                                        <li class="in">
+                                            <img class="avatar" alt="" src="img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="#" class="name">Automation</a>
+                                                <span class="datetime">2:06pm, 13th March 2018</span>
+													<span class="body">
+                                                        及时剪除枯死的病枝、病株，集中烧毁，可以用50%福美双可湿性粉剂200倍或50%多菌灵可湿粉400倍，或用抗霉菌素120水剂100ppm药液灌根。平时也要加强养护管理，增强树势，提高植株抗病能力。
+                                                    </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+
 									<div class="chat-form">
 										<div class="input-cont">
 											<input type="text" placeholder="Type a message here..." />
