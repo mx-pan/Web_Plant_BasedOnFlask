@@ -119,8 +119,490 @@ var App = function () {
                 onRegionClick: function (element, code, region) {
                     //sample to interact with map
                     //var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-					var message = region + code;
-                    alert(message);
+                  
+                    $.getJSON("/api/zone",function(data,status){
+                        switch(code)
+                        {
+                            case '01区':
+                            var zone_name = data.data[0].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '02区':
+                            var zone_name = data.data[1].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '03区':
+                            var zone_name = data.data[2].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '04区':
+                            var zone_name = data.data[3].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '05区':
+                            var zone_name = data.data[4].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '06区':
+                            var zone_name = data.data[5].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '07区':
+                            var zone_name = data.data[6].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '08区':
+                            var zone_name = data.data[7].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '09区':
+                            var zone_name = data.data[8].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '10区':
+                            var zone_name = data.data[9].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '11区':
+                            var zone_name = data.data[10].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '12区':
+                            var zone_name = data.data[11].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '13区':
+                            var zone_name = data.data[12].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '14区':
+                            var zone_name = data.data[13].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '15区':
+                            var zone_name = data.data[14].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '16区':
+                            var zone_name = data.data[15].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '17区':
+                            var zone_name = data.data[16].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '18区':
+                            var zone_name = data.data[17].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '19区':
+                            var zone_name = data.data[18].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '20区':
+                            var zone_name = data.data[19].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                            case '21区':
+                            var zone_name = data.data[20].ZONE_NAME;
+                            var zone_state = '温湿度状况良好';
+                            break;
+
+                        }
+
+                        $.getJSON("/api/sensor",function(data,status){
+                            //data = eval("("+data+")");      //added
+                            switch(code)
+                        {
+                            case '01区':
+                            var zone_temperature = parseInt(data.data[0].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[0].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+
+                            break;
+
+                            case '02区':
+                            var zone_temperature = parseInt(data.data[1].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[1].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '03区':
+                            var zone_temperature = parseInt(data.data[2].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[2].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '04区':
+                            var zone_temperature = parseInt(data.data[3].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[3].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '05区':
+                            var zone_temperature = parseInt(data.data[4].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[4].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '06区':
+                            var zone_temperature = parseInt(data.data[5].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[5].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '07区':
+                            var zone_temperature = parseInt(data.data[6].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[6].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '08区':
+                            var zone_temperature = parseInt(data.data[7].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[7].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '09区':
+                            var zone_temperature = parseInt(data.data[8].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[8].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '10区':
+                            var zone_temperature = parseInt(data.data[9].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[9].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '11区':
+                            var zone_temperature = parseInt(data.data[10].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[10].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '12区':
+                            var zone_temperature = parseInt(data.data[11].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[11].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '13区':
+                            var zone_temperature = parseInt(data.data[12].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[12].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '14区':
+                            var zone_temperature = parseInt(data.data[13].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[13].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+                            case '15区':
+                            var zone_temperature = parseInt(data.data[14].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[14].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '16区':
+                            var zone_temperature = parseInt(data.data[15].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[15].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '17区':
+                            var zone_temperature = parseInt(data.data[16].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[16].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '18区':
+                            var zone_temperature = parseInt(data.data[17].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[17].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '19区':
+                            var zone_temperature = parseInt(data.data[18].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[18].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '20区':
+                            var zone_temperature = parseInt(data.data[19].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[19].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                            case '21区':
+                            var zone_temperature = parseInt(data.data[20].SENSOR_IP);
+                            var zone_humidity = parseInt(data.data[20].SENSOR_PORT);
+                            if(zone_temperature > 30)
+                            {var zone_state_temperature = '温度过高';}
+                            else if(zone_temperature <25)
+                            {var zone_state_temperature = '温度过低';}
+                            else{var zone_state_temperature = '温度正常';}
+
+                            if(zone_humidity > 70)
+                            {var zone_state_temperature = '湿度过高';}
+                            else if(zone_humidity <40)
+                            {var zone_state_humidity = '湿度过低';}
+                            else{var zone_state_humidity = '湿度正常';}
+                            
+                            break;
+
+                        }
+                   
+                        var message = code + '：' + zone_state_temperature + '，' + zone_state_humidity +'。';
+                        alert(message);
+
+                        });
+                        
+                        //var message = code + zone_state;
+                        //alert(message);
+                    });
+                    
+                    //var message = region + code + statement1;
+                    //alert(message);
                 }
             };
             data.map = name + '_en';
