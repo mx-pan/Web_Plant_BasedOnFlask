@@ -592,7 +592,7 @@ var App = function () {
 
                         }
                    
-                        var message = code + '：' + zone_state_temperature + '，' + zone_state_humidity +'。';
+                        var message = code + '：' + zone_state_temperature + '（' + zone_temperature + '℃），' + zone_state_humidity + '（' + zone_humidity + '%）。';
                         alert(message);
 
                         });
