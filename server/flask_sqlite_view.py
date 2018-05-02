@@ -55,3 +55,30 @@ class PLANTS_view(ModelView):
     column_labels = PLANTS.Translation  # 自定义显示column
     create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
     edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示
+
+class SENSOR_view(ModelView):
+    can_delete = True
+    can_edit = True
+    can_create = True
+    can_view_details = True
+    export_max_rows = 0
+    can_export = True
+    export_types = EXPORT_TYPES
+    column_filters = SENSOR.Columns  # 查找功能
+    column_labels = SENSOR.Translation  # 自定义显示column
+    create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
+    edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示
+
+    
+class ZONE_view(ModelView):
+    can_delete = True
+    can_edit = True
+    can_create = True
+    can_view_details = True
+    export_max_rows = 0
+    can_export = True
+    export_types = EXPORT_TYPES
+    column_filters = ZONE.Columns  # 查找功能
+    column_labels = ZONE.Translation  # 自定义显示column
+    create_modal = True                # 新建窗口是否是以弹出对话框的方式显示
+    edit_modal = True                  # 编辑窗口是否是以弹出对话框的方式显示

@@ -208,3 +208,53 @@ class PLANTS(db.Model, Table_Common):  # 植物信息
 
     def __repr__(self):
         return '<NAME: %r>' % self.NAME
+
+
+        
+class ZONE(db.Model, Table_Common):  # 区域信息
+    """ 添加数据表,每个数据表都是一个Python类,应类似的形式 """
+    __tablename__ = 'ZONE'
+    id = db.Column(db.Integer, primary_key=True)
+    ZONE_NAME = db.Column(db.Text, nullable=False)
+    ZONE_TYPE = db.Column(db.Text, nullable=False)
+    NODE_LOCATION = db.Column(db.Text, nullable=False)
+    NODE_ID = db.Column(db.Text, nullable=False)
+    ZONE_ID = db.Column(db.Text, nullable=False)
+    IMAGE = db.Column(db.Text, nullable=False)
+    STATUS = db.Column(db.Text, nullable=False)
+    CAUSE = db.Column(db.Text)
+    COLOR = db.Column(db.Text, nullable=False)
+    ZONE_IP = db.Column(db.Text)
+    ZONE_PORT = db.Column(db.Text)
+
+    Columns = ['ZONE_NAME', 'ZONE_TYPE', 'NODE_LOCATION', 'NODE_ID', 'ZONE_ID',
+               'IMAGE', 'STATUS', 'CAUSE', 'COLOR', 'ZONE_IP', 'ZONE_PORT']
+    Translation = {'ZONE_NAME': '名字',
+                   'ZONE_TYPE': '类型',
+                   'NODE_LOCATION': '节点位置描述',
+                   'NODE_ID': '节点编码',
+                   'ZONE_ID': '传感器编号',
+                   'IMAGE': '缩略图',
+                   'STATUS': '状态',
+                   'CAUSE': '故障原因',
+                   'IMAGE': '缩略图',
+                   'COLOR': '颜色',
+                   'ZONE_IP': 'IP地址',
+                   'ZONE_PORT': '端口号'}
+
+    def __init__(self, ZONE_NAME='', ZONE_TYPE='', NODE_LOCATION='', NODE_ID='', ZONE_ID='', IMAGE='', STATUS='',
+                 CAUSE='', COLOR='', ZONE_IP='', ZONE_PORT=''):
+        self.ZONE_NAME = ZONE_NAME
+        self.ZONE_TYPE = ZONE_TYPE
+        self.NODE_LOCATION = NODE_LOCATION
+        self.NODE_ID = NODE_ID
+        self.ZONE_ID = ZONE_ID
+        self.IMAGE = IMAGE
+        self.STATUS = STATUS
+        self.CAUSE = CAUSE
+        self.COLOR = COLOR
+        self.ZONE_IP = ZONE_IP
+        self.ZONE_PORT = ZONE_PORT
+
+    def __repr__(self):
+        return '<NAME: %r>' % self.NAME
